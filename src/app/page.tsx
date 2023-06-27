@@ -31,7 +31,7 @@ export default async function Todos() {
           ))}
         </ul>
         <div>
-          <p>5 items left</p>
+          <p>{todos.length} items left</p>
           <div>
             <button>All</button>
             <button>Active</button>

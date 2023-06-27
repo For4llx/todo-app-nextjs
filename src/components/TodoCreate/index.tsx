@@ -4,12 +4,13 @@ import { useRouter } from "next/navigation";
 import { FormEvent, useRef } from "react";
 
 export default function TodoCreate() {
+  const formRef = useRef<HTMLFormElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const isCompletedRef = useRef<HTMLInputElement>(null);
 
   const router = useRouter();
 
-  async function create(e: FormEvent) {
+  async function handleCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const title = titleRef.current?.value;
     const isCompleted = isCompletedRef.current?.checked;
@@ -23,10 +24,11 @@ export default function TodoCreate() {
         isCompleted,
       }),
     });
+    formRef.current?.reset();
     router.refresh();
   }
   return (
-    <form onSubmit={create}>
+    <form ref={formRef} onSubmit={handleCreate}>
       <input ref={titleRef} type="text" placeholder="Create a new todo..." />
       <input ref={isCompletedRef} type="checkbox" />
     </form>
