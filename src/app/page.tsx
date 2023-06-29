@@ -1,9 +1,9 @@
-import TodoCreate from "@/components/TodoCreate";
-import TodoItem from "@/components/TodoItem";
-import { prisma } from "./db";
+import Todo from "@/components/Todo";
 
 async function getTodos() {
-  return prisma.todo.findMany();
+  const response = await fetch("http://localhost:3000/api/todo");
+  const { todos } = await response.json();
+  return todos;
 }
 
 export default async function Todos() {
@@ -14,27 +14,9 @@ export default async function Todos() {
         <h1>Todo</h1>
       </header>
       <main>
-        <TodoCreate />
-        <ul>
-          {todos.map((todo) => (
-            <li key={todo.id}>
-              <TodoItem todo={todo} />
-            </li>
-          ))}
-        </ul>
-        <div>
-          <p>{todos.length} items left</p>
-          <div>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
-          </div>
-          <button>Clear Completed</button>
-        </div>
+        <Todo todos={todos} />
+        <span>Drag and drop to reorder list</span>
       </main>
-      <footer>
-        <p>Drag and drop to reorder list</p>
-      </footer>
     </>
   );
 }

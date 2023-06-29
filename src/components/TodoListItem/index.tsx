@@ -1,22 +1,22 @@
 "use client";
+
 import ITodo from "@/interfaces/todo";
 import { useRouter } from "next/navigation";
-import { FormEvent, MouseEventHandler, useRef } from "react";
+import { useRef } from "react";
 
 interface IProps {
   todo: ITodo;
+  setTodos: Function;
 }
 
-export default function TodoItem({ todo }: IProps) {
+export default function TodoListItem({ todo, setTodos }: IProps) {
   const TodoRef = useRef<HTMLInputElement>(null);
   const isCompletedRef = useRef<HTMLInputElement>(null);
-
-  const router = useRouter();
 
   async function handleUpdate(e: React.MouseEvent<HTMLInputElement>) {
     const id = Number(TodoRef.current?.id);
     const isCompleted = isCompletedRef.current?.checked;
-    await fetch(`http://localhost:3000/api/todo/${id}`, {
+    const response = await fetch(`http://localhost:3000/api/todo/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -25,15 +25,19 @@ export default function TodoItem({ todo }: IProps) {
         isCompleted,
       }),
     });
-    router.refresh();
   }
 
   async function handleDelete(e: React.MouseEvent<HTMLElement>) {
     const id = Number(TodoRef.current?.id);
-    await fetch(`http://localhost:3000/api/todo/${id}`, {
+    const response = await fetch(`http://localhost:3000/api/todo/${id}`, {
       method: "DELETE",
     });
-    router.refresh();
+    const { deletedTodo } = await response.json();
+    setTodos((previousTodos) => {
+      return previousTodos.filter(
+        (indexTodo) => indexTodo.id != deletedTodo.id
+      );
+    });
   }
 
   return (
