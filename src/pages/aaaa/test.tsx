@@ -16,4 +16,7 @@ export default async function handler(
     });
     res.status(201).json(createdTodo);
   }
+  if (req.method === "PATCH") {
+    console.log(req.method);
+  }
 }

@@ -1,4 +1,5 @@
 import TodoCreate from "@/components/TodoCreate";
+import TodoItem from "@/components/TodoItem";
 import { prisma } from "./db";
 
 async function getTodos() {
@@ -17,16 +18,7 @@ export default async function Todos() {
         <ul>
           {todos.map((todo) => (
             <li key={todo.id}>
-              <article>
-                <form>
-                  {todo.isCompleted ? (
-                    <input name="isCompleted" type="checkbox" defaultChecked />
-                  ) : (
-                    <input name="isCompleted" type="checkbox" />
-                  )}
-                  <p>{todo.title}</p>
-                </form>
-              </article>
+              <TodoItem todo={todo} />
             </li>
           ))}
         </ul>
