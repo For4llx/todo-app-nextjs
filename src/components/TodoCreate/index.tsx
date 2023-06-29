@@ -1,19 +1,22 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import ITodo from "@/interfaces/todo";
 import { FormEvent, useRef } from "react";
 
-export default function TodoCreate() {
+interface IProps {
+  setTodos: Function;
+}
+
+export default function TodoCreate({ setTodos }: IProps) {
+  const formRef = useRef<HTMLFormElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const isCompletedRef = useRef<HTMLInputElement>(null);
 
-  const router = useRouter();
-
-  async function create(e: FormEvent) {
+  async function handleCreate(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const title = titleRef.current?.value;
     const isCompleted = isCompletedRef.current?.checked;
-    await fetch("http://localhost:3000/api/todo", {
+    const response = await fetch("http://localhost:3000/api/todo", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,10 +26,12 @@ export default function TodoCreate() {
         isCompleted,
       }),
     });
-    router.refresh();
+    const { createdTodo } = await response.json();
+    setTodos((prev: ITodo[]) => [...prev, createdTodo]);
+    formRef.current?.reset();
   }
   return (
-    <form onSubmit={create}>
+    <form ref={formRef} onSubmit={handleCreate}>
       <input ref={titleRef} type="text" placeholder="Create a new todo..." />
       <input ref={isCompletedRef} type="checkbox" />
     </form>

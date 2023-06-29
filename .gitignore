@@ -20,6 +20,7 @@
 *.pem
 .env
 dev.db
+images
 
 # debug
 npm-debug.log*
