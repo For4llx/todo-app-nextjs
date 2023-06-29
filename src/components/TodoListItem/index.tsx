@@ -26,8 +26,8 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
       }),
     });
     setIsCompleted((value) => !value);
-    setTodos((previousTodos) => {
-      return previousTodos.map((previousTodo) => {
+    setTodos((previousTodos: ITodo[]) => {
+      return previousTodos.map((previousTodo: ITodo) => {
         if (previousTodo.id == todo.id) {
           previousTodo.isCompleted = isCompleted;
           return previousTodo;

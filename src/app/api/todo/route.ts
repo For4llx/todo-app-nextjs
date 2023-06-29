@@ -13,13 +13,3 @@ export async function POST(request: NextRequest) {
   });
   return NextResponse.json({ createdTodo });
 }
-
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  const deletedTodos = await prisma.todo.deleteMany({
-    where: { isCompleted: true },
-  });
-  return NextResponse.json({ deletedTodos });
-}
