@@ -12,12 +12,11 @@ interface IProps {
 
 export default function Todo({ todos: todosInital }: IProps) {
   const [todos, setTodos] = useState(todosInital);
-
   return (
     <>
       <TodoCreate setTodos={setTodos} />
       <TodoList setTodos={setTodos} todos={todos} />
-      <TodoFooter todos={todos} />
+      <TodoFooter setTodos={setTodos} todos={todos} />
     </>
   );
 }

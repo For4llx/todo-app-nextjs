@@ -1,8 +1,7 @@
 "use client";
 
 import ITodo from "@/interfaces/todo";
-import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 interface IProps {
   todo: ITodo;
@@ -11,6 +10,7 @@ interface IProps {
 
 export default function TodoListItem({ todo, setTodos }: IProps) {
   const TodoRef = useRef<HTMLInputElement>(null);
+  const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
   const isCompletedRef = useRef<HTMLInputElement>(null);
 
   async function handleUpdate(e: React.MouseEvent<HTMLInputElement>) {
@@ -25,6 +25,16 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
         isCompleted,
       }),
     });
+    setIsCompleted((value) => !value);
+    setTodos((previousTodos) => {
+      return previousTodos.map((previousTodo) => {
+        if (previousTodo.id == todo.id) {
+          previousTodo.isCompleted = isCompleted;
+          return previousTodo;
+        }
+        return previousTodo;
+      });
+    });
   }
 
   async function handleDelete(e: React.MouseEvent<HTMLElement>) {
@@ -33,7 +43,7 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
       method: "DELETE",
     });
     const { deletedTodo } = await response.json();
-    setTodos((previousTodos) => {
+    setTodos((previousTodos: ITodo[]) => {
       return previousTodos.filter(
         (indexTodo) => indexTodo.id != deletedTodo.id
       );
@@ -42,7 +52,7 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
 
   return (
     <article ref={TodoRef} id={todo.id.toString()}>
-      {todo.isCompleted ? (
+      {isCompleted ? (
         <input
           ref={isCompletedRef}
           id={todo.id.toString()}
