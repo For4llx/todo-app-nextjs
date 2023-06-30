@@ -7,9 +7,9 @@ interface IProps {
 }
 
 export default function TodoList({ todos, setTodos }: IProps) {
-  const todoList = todos.map((todo) => (
+  const todoList = todos.map((todo, index) => (
     <li key={todo.id}>
-      <TodoListItem setTodos={setTodos} todo={todo} />
+      <TodoListItem index={index} setTodos={setTodos} todo={todo} />
     </li>
   ));
 

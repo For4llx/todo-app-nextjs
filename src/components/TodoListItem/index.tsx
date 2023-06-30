@@ -6,12 +6,15 @@ import { useRef, useState } from "react";
 interface IProps {
   todo: ITodo;
   setTodos: Function;
+  index: number;
 }
 
-export default function TodoListItem({ todo, setTodos }: IProps) {
+export default function TodoListItem({ todo, setTodos, index }: IProps) {
   const TodoRef = useRef<HTMLInputElement>(null);
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
   const isCompletedRef = useRef<HTMLInputElement>(null);
+  const draggedItem = useRef<any>(null);
+  const draggedOverItem = useRef<any>(null);
 
   async function handleUpdate(e: React.MouseEvent<HTMLInputElement>) {
     const id = Number(TodoRef.current?.id);
@@ -37,6 +40,26 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
     });
   }
 
+  function handleSort() {
+    setTodos((previousTodos) => {
+      let todos = [...previousTodos];
+      const draggedItemContent = todos.splice(draggedItem.current, 1)[0];
+
+      //switch the position
+      todos.splice(draggedOverItem.current, 0, draggedItemContent);
+      console.log(todos);
+
+      //reset the position ref
+      draggedItem.current = null;
+      draggedOverItem.current = null;
+      return todos;
+    });
+  }
+
+  function HandleOnDragEnd(e: React.DragEvent<HTMLElement>, index: number) {
+    handleSort();
+  }
+
   async function handleDelete(e: React.MouseEvent<HTMLElement>) {
     const id = Number(TodoRef.current?.id);
     const response = await fetch(`http://localhost:3000/api/todo/${id}`, {
@@ -51,7 +74,14 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
   }
 
   return (
-    <article ref={TodoRef} id={todo.id.toString()}>
+    <article
+      ref={TodoRef}
+      id={todo.id.toString()}
+      draggable
+      onDragStart={(e) => (draggedItem.current = index)}
+      onDragEnter={(e) => (draggedOverItem.current = index)}
+      onDragEnd={(e) => HandleOnDragEnd(e, index)}
+    >
       {isCompleted ? (
         <input
           ref={isCompletedRef}
