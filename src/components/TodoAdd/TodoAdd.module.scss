@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 5px;
+}
+
+.paragraph {
+  font-weight: 400;
+  letter-spacing: -0.25px;
+  color: var(--veryDarkGrayishBlue);
+  caret-color: var(--brightBlue);
+  width: 100%;
+
+  &::placeholder {
+    color: var(--darkGrayishBlue);
+  }
+}

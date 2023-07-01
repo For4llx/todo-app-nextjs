@@ -2,12 +2,15 @@
 
 import ITodo from "@/interfaces/todo";
 import { FormEvent, useRef } from "react";
+import TodoAddCheckbox from "./TodoAddCheckbox";
+import TodoAddContainer from "./TodoAddContainer";
+import TodoAddField from "./TodoAddField";
 
 interface IProps {
   setTodos: Function;
 }
 
-export default function TodoCreate({ setTodos }: IProps) {
+export default function TodoAdd({ setTodos }: IProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const isCompletedRef = useRef<HTMLInputElement>(null);
@@ -31,9 +34,9 @@ export default function TodoCreate({ setTodos }: IProps) {
     formRef.current?.reset();
   }
   return (
-    <form ref={formRef} onSubmit={handleCreate}>
-      <input ref={titleRef} type="text" placeholder="Create a new todo..." />
-      <input ref={isCompletedRef} type="checkbox" />
-    </form>
+    <TodoAddContainer formRef={formRef} handleCreate={handleCreate}>
+      <TodoAddCheckbox isCompletedRef={isCompletedRef} />
+      <TodoAddField titleRef={titleRef} />
+    </TodoAddContainer>
   );
 }

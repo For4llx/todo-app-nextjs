@@ -2,6 +2,7 @@
 
 import ITodo from "@/interfaces/todo";
 import { useRef, useState } from "react";
+import TodoListItemCheckbox from "./TodoListItemCheckbox";
 
 interface IProps {
   todo: ITodo;
@@ -41,7 +42,7 @@ export default function TodoListItem({ todo, setTodos, index }: IProps) {
   }
 
   function handleSort() {
-    setTodos((previousTodos) => {
+    setTodos((previousTodos: ITodo[]) => {
       let todos = [...previousTodos];
       const draggedItemContent = todos.splice(draggedItem.current, 1)[0];
 
@@ -82,22 +83,12 @@ export default function TodoListItem({ todo, setTodos, index }: IProps) {
       onDragEnter={(e) => (draggedOverItem.current = index)}
       onDragEnd={(e) => HandleOnDragEnd(e, index)}
     >
-      {isCompleted ? (
-        <input
-          ref={isCompletedRef}
-          id={todo.id.toString()}
-          onClick={handleUpdate}
-          type="checkbox"
-          defaultChecked
-        />
-      ) : (
-        <input
-          ref={isCompletedRef}
-          id={todo.id.toString()}
-          onClick={handleUpdate}
-          type="checkbox"
-        />
-      )}
+      <TodoListItemCheckbox
+        isCompletedRef={isCompletedRef}
+        todo={todo}
+        handleUpdate={handleUpdate}
+        isCompleted={isCompleted}
+      />
       <p>{todo.title}</p>
       <button onClick={handleDelete}>
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">

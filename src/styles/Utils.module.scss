@@ -1,3 +1,47 @@
 .paragraph {
   font-size: 18px;
 }
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding-left: max(calc(50% - var(--container) / 2), 2rem);
+  padding-right: max(calc(50% - var(--container) / 2), 2rem);
+}
+
+.checkmark {
+  display: block;
+  width: 23px;
+  height: 23px;
+  background: white;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 1px solid var(--veryLightGrayishBlue);
+  &:hover {
+    background: linear-gradient(white, white) padding-box,
+      var(--checkBackground) border-box;
+
+    border-radius: 100%;
+    border: 1px solid transparent;
+  }
+}
+
+.customCheckbox input:checked ~ .checkmark {
+  position: relative;
+  background-image: var(--checkBackground);
+  background-position: center center;
+  border: 1px solid var(--checkBackground);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    height: inherit;
+    width: inherit;
+    background-image: url("../../public/images/icon-check.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}

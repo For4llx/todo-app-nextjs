@@ -2,6 +2,7 @@
   /* Layout */
   --mobile: 375px;
   --desktop: 1440px;
+  --container: 540px;
 
   /* Colors */
   /* Light Theme */
@@ -27,4 +28,18 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+html,
+body {
+  background-color: #f2f2f2;
+}
+
+input {
+  border: none;
+  outline: none;
 }
