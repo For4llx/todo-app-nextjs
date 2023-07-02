@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.button {
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: -0.25px;
+  color: var(--darkGrayishBlue);
+
+  &:hover {
+    color: var(--veryDarkGrayishBlue);
+  }
+}

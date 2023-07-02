@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 5px;
+  border-bottom: 1px solid var(--veryLightGrayishBlue);
+  cursor: grab;
+
+  &:hover {
+    .button {
+      display: flex;
+    }
+  }
+}
+
+.title {
+  font-weight: 400;
+  letter-spacing: -0.25px;
+  color: var(--veryDarkGrayishBlue);
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.button {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}

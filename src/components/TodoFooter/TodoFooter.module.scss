@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 1.5rem;
+}
+
+.paragraph {
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: -0.19px;
+  color: var(--darkGrayishBlue);
+}
+
+.button {
+  &:hover {
+    color: var(--veryDarkGrayishBlue);
+  }
+}

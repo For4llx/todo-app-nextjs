@@ -39,7 +39,17 @@ body {
   background-color: #f2f2f2;
 }
 
-input {
+input,
+button {
   border: none;
   outline: none;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
 }

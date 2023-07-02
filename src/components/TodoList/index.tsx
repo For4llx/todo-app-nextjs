@@ -1,5 +1,6 @@
 import TodoListItem from "@/components/TodoListItem";
 import ITodo from "@/interfaces/todo";
+import TodoListContainer from "./TodoListContainer";
 
 interface IProps {
   todos: ITodo[];
@@ -13,5 +14,5 @@ export default function TodoList({ todos, setTodos }: IProps) {
     </li>
   ));
 
-  return <ul>{todoList}</ul>;
+  return <TodoListContainer>{todoList}</TodoListContainer>;
 }
