@@ -1,4 +1,4 @@
-import TodoListItem from "@/components/TodoListItem";
+import TodoMainListItem from "@/components/TodoMainListItem";
 import ITodo from "@/interfaces/todo";
 import TodoListContainer from "./TodoListContainer";
 
@@ -10,7 +10,7 @@ interface IProps {
 export default function TodoList({ todos, setTodos }: IProps) {
   const todoList = todos.map((todo, index) => (
     <li key={todo.id}>
-      <TodoListItem index={index} setTodos={setTodos} todo={todo} />
+      <TodoMainListItem index={index} setTodos={setTodos} todo={todo} />
     </li>
   ));
 

@@ -5,5 +5,5 @@ interface IProps {
 }
 
 export default function TodoLayout({ children }: IProps) {
-  return <div className={utilsStyles.container}>{children}</div>;
+  return <div>{children}</div>;
 }

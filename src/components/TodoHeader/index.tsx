@@ -1,7 +1,10 @@
+import TodoHeaderContainer from "./TodoHeaderContainer";
+import TodoHeaderTitle from "./TodoHeaderTitle";
+
 export default function TodoHeader() {
   return (
-    <header>
-      <h1>Todo</h1>
+    <TodoHeaderContainer>
+      <TodoHeaderTitle>Todo</TodoHeaderTitle>
       <button>
         <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26">
           <path
@@ -11,6 +14,6 @@ export default function TodoHeader() {
           />
         </svg>
       </button>
-    </header>
+    </TodoHeaderContainer>
   );
 }

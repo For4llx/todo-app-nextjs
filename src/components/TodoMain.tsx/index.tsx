@@ -1,7 +1,8 @@
 import ITodo from "@/interfaces/todo";
-import TodoAdd from "../TodoAdd";
-import TodoFooter from "../TodoFooterAction";
-import TodoList from "../TodoList";
+import TodoAdd from "../TodoMainAdd";
+import TodoMainFooter from "../TodoMainFooter";
+import TodoList from "../TodoMainList";
+import TodoMainContainer from "./TodoMainContainer";
 
 interface IProps {
   todos: ITodo[];
@@ -10,10 +11,10 @@ interface IProps {
 
 export default function TodoMain({ setTodos, todos }: IProps) {
   return (
-    <main>
+    <TodoMainContainer>
       <TodoAdd setTodos={setTodos} />
       <TodoList setTodos={setTodos} todos={todos} />
-      <TodoFooter setTodos={setTodos} />
-    </main>
+      <TodoMainFooter todos={todos} setTodos={setTodos} />
+    </TodoMainContainer>
   );
 }
