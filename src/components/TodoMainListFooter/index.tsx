@@ -1,5 +1,5 @@
 import ITodo from "@/interfaces/todo";
-import TodoMainListFooterSort from "../TodoMainListFooterSort";
+import TodoMainListFooterNavigation from "../TodoMainListFooterNavigation";
 import TodoFooterClear from "./TodoFooterClear";
 import TodoFooterContainer from "./TodoFooterContainer";
 import TodoFooterCount from "./TodoFooterCount";
@@ -23,7 +23,7 @@ export default function TodoMainListFooter({ todos, setTodos }: IProps) {
   return (
     <TodoFooterContainer>
       <TodoFooterCount>{todos.length} items left</TodoFooterCount>
-      <TodoMainListFooterSort setTodos={setTodos} />
+      <TodoMainListFooterNavigation />
       <TodoFooterClear handleDeleteCompleted={handleDeleteCompleted} />
     </TodoFooterContainer>
   );
