@@ -1,30 +1,75 @@
-:root {
-  /* Layout */
+#page {
   --mobile: 375px;
   --desktop: 1440px;
+  --container: 540px;
 
-  /* Colors */
-  /* Light Theme */
   --brightBlue: hsl(220, 98%, 61%);
   --checkBackground: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+#page[data-theme="light"] {
   --veryLightGray: hsl(0, 0%, 98%);
   --veryLightGrayishBlue: hsl(236, 33%, 92%);
   --lightGrayishBlue: hsl(233, 11%, 84%);
   --darkGrayishBlue: hsl(236, 9%, 61%);
   --veryDarkGrayishBlue: hsl(235, 19%, 35%);
+  --veryDarkDesaturatedBlue: hsl(0, 0%, 100%);
+  --veryDarkBlue: #f2f2f2;
+  --shadowColor: hsl(237, 20%, 80%);
+  --backgroundUrl: url("../../public/images/bg-desktop-light.jpg");
+}
 
-  /* Dark Theme */
+#page[data-theme="dark"] {
   --veryDarkBlue: hsl(235, 21%, 11%);
   --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
   --lightGrayishBlue: hsl(234, 39%, 85%);
   --lightGrayishBlueHover: hsl(236, 33%, 92%);
   --darkGrayishBlue: hsl(234, 11%, 52%);
+  /*
   --veryDarkGrayishBlue: hsl(233, 14%, 35%);
   --veryDarkGrayishBlue: hsl(237, 14%, 26%);
+  */
+  --veryLightGrayishBlue: hsl(237, 14%, 26%);
+  --veryDarkGrayishBlue: var(--lightGrayishBlue);
+  --shadowColor: hsl(0, 0%, 0%);
+  --backgroundUrl: url("../../public/images/bg-desktop-dark.jpg");
 }
 
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+html,
+body,
+#page {
+  height: 100%;
+}
+
+#page {
+  background-color: var(--veryDarkBlue);
+}
+
+input,
+button {
+  border: none;
+  outline: none;
+}
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
 }

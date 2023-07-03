@@ -1,10 +1,12 @@
 "use client";
 
-import TodoCreate from "@/components/TodoCreate";
-import TodoFooter from "@/components/TodoFooter";
-import TodoList from "@/components/TodoList";
 import ITodo from "@/interfaces/todo";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import TodoHeader from "../TodoHeader";
+import TodoContainer from "./TodoContainer";
+import TodoMain from "../TodoMain.tsx";
+import TodoFooter from "../TodoFooter";
+import { ThemeContext } from "@/app/provider/ThemeProvider";
 
 interface IProps {
   todos: ITodo[];
@@ -12,11 +14,12 @@ interface IProps {
 
 export default function Todo({ todos: todosInital }: IProps) {
   const [todos, setTodos] = useState(todosInital);
+
   return (
-    <>
-      <TodoCreate setTodos={setTodos} />
-      <TodoList setTodos={setTodos} todos={todos} />
-      <TodoFooter setTodos={setTodos} todos={todos} />
-    </>
+    <TodoContainer>
+      <TodoHeader />
+      <TodoMain todos={todos} setTodos={setTodos} />
+      <TodoFooter />
+    </TodoContainer>
   );
 }
