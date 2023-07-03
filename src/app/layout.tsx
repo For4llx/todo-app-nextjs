@@ -14,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html data-theme="dark" lang="en">
       <body className={josefinSans.className}>{children}</body>
     </html>
   );

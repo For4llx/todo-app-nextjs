@@ -1,27 +1,38 @@
 :root {
-  /* Layout */
   --mobile: 375px;
   --desktop: 1440px;
   --container: 540px;
 
-  /* Colors */
-  /* Light Theme */
   --brightBlue: hsl(220, 98%, 61%);
   --checkBackground: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+}
+
+:root[data-theme="light"] {
   --veryLightGray: hsl(0, 0%, 98%);
   --veryLightGrayishBlue: hsl(236, 33%, 92%);
   --lightGrayishBlue: hsl(233, 11%, 84%);
   --darkGrayishBlue: hsl(236, 9%, 61%);
   --veryDarkGrayishBlue: hsl(235, 19%, 35%);
+  --veryDarkDesaturatedBlue: hsl(0, 0%, 100%);
+  --veryDarkBlue: #f2f2f2;
+  --shadowColor: hsl(237, 20%, 80%);
+  --backgroundUrl: url("../../public/images/bg-desktop-light.jpg");
+}
 
-  /* Dark Theme */
+:root[data-theme="dark"] {
   --veryDarkBlue: hsl(235, 21%, 11%);
   --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
   --lightGrayishBlue: hsl(234, 39%, 85%);
   --lightGrayishBlueHover: hsl(236, 33%, 92%);
   --darkGrayishBlue: hsl(234, 11%, 52%);
+  /*
   --veryDarkGrayishBlue: hsl(233, 14%, 35%);
   --veryDarkGrayishBlue: hsl(237, 14%, 26%);
+  */
+  --veryLightGrayishBlue: hsl(237, 14%, 26%);
+  --veryDarkGrayishBlue: var(--lightGrayishBlue);
+  --shadowColor: hsl(0, 0%, 0%);
+  --backgroundUrl: url("../../public/images/bg-desktop-dark.jpg");
 }
 
 * {
@@ -36,7 +47,7 @@ input[type="checkbox"] {
 
 html,
 body {
-  background-color: #f2f2f2;
+  background-color: var(--veryDarkBlue);
 }
 
 input,

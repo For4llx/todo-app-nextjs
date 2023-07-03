@@ -13,9 +13,10 @@ interface IProps {
 
 export default function Todo({ todos: todosInital }: IProps) {
   const [todos, setTodos] = useState(todosInital);
+
   return (
-    <TodoContainer>
-      <TodoHeader />
+    <TodoContainer theme={theme}>
+      <TodoHeader theme={theme} setTheme={setTheme} />
       <TodoMain todos={todos} setTodos={setTodos} />
       <TodoFooter />
     </TodoContainer>

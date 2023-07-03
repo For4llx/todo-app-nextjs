@@ -13,12 +13,16 @@
   display: block;
   width: 23px;
   height: 23px;
-  background: white;
+  background: var(--veryDarkDesaturatedBlue);
   border-radius: 100%;
   cursor: pointer;
   border: 1px solid var(--veryLightGrayishBlue);
   &:hover {
-    background: linear-gradient(white, white) padding-box,
+    background: linear-gradient(
+          var(--veryDarkDesaturatedBlue),
+          var(--veryDarkDesaturatedBlue)
+        )
+        padding-box,
       var(--checkBackground) border-box;
 
     border-radius: 100%;

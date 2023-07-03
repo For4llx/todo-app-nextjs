@@ -1,9 +1,8 @@
-import utilsStyles from "@/styles/Utils.module.scss";
-
 interface IProps {
   children: React.ReactNode;
+  theme: "light" | "dark";
 }
 
-export default function TodoContainer({ children }: IProps) {
-  return <div>{children}</div>;
+export default function TodoContainer({ children, theme }: IProps) {
+  return <div data-theme={theme}>{children}</div>;
 }
