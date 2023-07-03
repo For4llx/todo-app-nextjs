@@ -4,6 +4,6 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export default function TodoFooterCount({ children }: IProps) {
+export default function TodoFooterParagraph({ children }: IProps) {
   return <p className={styles.paragraph}>{children}</p>;
 }

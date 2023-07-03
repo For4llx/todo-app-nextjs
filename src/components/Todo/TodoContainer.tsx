@@ -4,6 +4,6 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export default function TodoLayout({ children }: IProps) {
+export default function TodoContainer({ children }: IProps) {
   return <div>{children}</div>;
 }

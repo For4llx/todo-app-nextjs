@@ -1,4 +1,4 @@
-import styles from "./TodoFooter.module.scss";
+import styles from "./TodoMainListFooter.module.scss";
 
 interface IProps {
   children: React.ReactNode;

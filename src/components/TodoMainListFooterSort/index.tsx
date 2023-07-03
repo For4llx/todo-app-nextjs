@@ -5,7 +5,7 @@ interface IProps {
   setTodos: Function;
 }
 
-export default function TodoFooter({ setTodos }: IProps) {
+export default function TodoMainListFooterSort({ setTodos }: IProps) {
   async function handleGetCompleted(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
     const response = await fetch("http://localhost:3000/api/todo/completed");

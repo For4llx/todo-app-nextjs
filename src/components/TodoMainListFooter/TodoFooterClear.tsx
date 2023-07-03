@@ -1,7 +1,7 @@
 import ITodo from "@/interfaces/todo";
 import TodoFooterCount from "./TodoFooterCount";
 
-import styles from "./TodoFooter.module.scss";
+import styles from "./TodoMainListFooter.module.scss";
 
 interface IProps {
   handleDeleteCompleted: any;

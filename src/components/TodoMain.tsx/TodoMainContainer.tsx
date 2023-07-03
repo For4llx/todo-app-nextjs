@@ -1,3 +1,4 @@
+import styles from "./TodoMain.module.scss";
 import utilsStyles from "@/styles/Utils.module.scss";
 
 interface IProps {
@@ -5,5 +6,9 @@ interface IProps {
 }
 
 export default function TodoMainContainer({ children }: IProps) {
-  return <main className={utilsStyles.container}>{children}</main>;
+  return (
+    <main className={`${styles.container} ${utilsStyles.container}`}>
+      {children}
+    </main>
+  );
 }

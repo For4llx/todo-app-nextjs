@@ -9,10 +9,5 @@ async function getTodos() {
 
 export default async function Todos() {
   const todos = await getTodos();
-  return (
-    <div>
-      <Todo todos={todos} />
-      <span>Drag and drop to reorder list</span>
-    </div>
-  );
+  return <Todo todos={todos} />;
 }

@@ -1,5 +1,5 @@
 import ITodo from "@/interfaces/todo";
-import TodoFooterAction from "../TodoMainFooterAction";
+import TodoMainListFooterSort from "../TodoMainListFooterSort";
 import TodoFooterClear from "./TodoFooterClear";
 import TodoFooterContainer from "./TodoFooterContainer";
 import TodoFooterCount from "./TodoFooterCount";
@@ -9,7 +9,7 @@ interface IProps {
   setTodos: Function;
 }
 
-export default function TodoMainFooter({ todos, setTodos }: IProps) {
+export default function TodoMainListFooter({ todos, setTodos }: IProps) {
   async function handleDeleteCompleted(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
     const response = await fetch(`http://localhost:3000/api/todo/completed`, {
@@ -23,7 +23,7 @@ export default function TodoMainFooter({ todos, setTodos }: IProps) {
   return (
     <TodoFooterContainer>
       <TodoFooterCount>{todos.length} items left</TodoFooterCount>
-      <TodoFooterAction setTodos={setTodos} />
+      <TodoMainListFooterSort setTodos={setTodos} />
       <TodoFooterClear handleDeleteCompleted={handleDeleteCompleted} />
     </TodoFooterContainer>
   );
