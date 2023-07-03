@@ -1,4 +1,4 @@
-:root {
+#page {
   --mobile: 375px;
   --desktop: 1440px;
   --container: 540px;
@@ -7,7 +7,7 @@
   --checkBackground: linear-gradient(hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
-:root[data-theme="light"] {
+#page[data-theme="light"] {
   --veryLightGray: hsl(0, 0%, 98%);
   --veryLightGrayishBlue: hsl(236, 33%, 92%);
   --lightGrayishBlue: hsl(233, 11%, 84%);
@@ -19,7 +19,7 @@
   --backgroundUrl: url("../../public/images/bg-desktop-light.jpg");
 }
 
-:root[data-theme="dark"] {
+#page[data-theme="dark"] {
   --veryDarkBlue: hsl(235, 21%, 11%);
   --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
   --lightGrayishBlue: hsl(234, 39%, 85%);
@@ -46,7 +46,12 @@ input[type="checkbox"] {
 }
 
 html,
-body {
+body,
+#page {
+  height: 100%;
+}
+
+#page {
   background-color: var(--veryDarkBlue);
 }
 

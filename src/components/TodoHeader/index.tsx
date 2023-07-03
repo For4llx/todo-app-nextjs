@@ -2,16 +2,11 @@ import TodoHeaderContainer from "./TodoHeaderContainer";
 import TodoHeaderTheme from "./TodoHeaderTheme";
 import TodoHeaderTitle from "./TodoHeaderTitle";
 
-interface IProps {
-  theme: "light" | "dark";
-  setTheme: any;
-}
-
-export default function TodoHeader({ theme, setTheme }: IProps) {
+export default function TodoHeader() {
   return (
     <TodoHeaderContainer>
       <TodoHeaderTitle>Todo</TodoHeaderTitle>
-      <TodoHeaderTheme setTheme={setTheme} theme={theme} />
+      <TodoHeaderTheme />
     </TodoHeaderContainer>
   );
 }

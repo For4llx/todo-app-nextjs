@@ -1,11 +1,12 @@
+"use client";
+
+import { ThemeContext } from "@/app/provider/ThemeProvider";
+import { useContext } from "react";
 import styles from "./TodoHeader.module.scss";
 
-interface IProps {
-  theme: "light" | "dark";
-  setTheme: any;
-}
+export default function TodoHeaderTheme() {
+  const { theme, setTheme } = useContext(ThemeContext);
 
-export default function TodoHeaderTheme({ theme, setTheme }: IProps) {
   return (
     <>
       {theme === "dark" ? (
