@@ -4,7 +4,7 @@ interface IProps {
   isCompletedRef: any;
 }
 
-export default function TodoAddCheckbox({ isCompletedRef }: IProps) {
+export default function TodoMainAddCheckbox({ isCompletedRef }: IProps) {
   return (
     <label className={utilsStyles.customCheckbox}>
       <input ref={isCompletedRef} type="checkbox" />

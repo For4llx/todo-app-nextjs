@@ -1,12 +1,11 @@
 "use client";
 
 import ITodo from "@/interfaces/todo";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import TodoHeader from "../TodoHeader";
 import TodoContainer from "./TodoContainer";
-import TodoMain from "../TodoMain.tsx";
+import TodoMain from "../TodoMain";
 import TodoFooter from "../TodoFooter";
-import { ThemeContext } from "@/app/provider/ThemeProvider";
 
 interface IProps {
   todos: ITodo[];

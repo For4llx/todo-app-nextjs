@@ -1,6 +1,6 @@
 "use client";
 
-import styles from "./TodoAdd.module.scss";
+import styles from "./TodoMainAdd.module.scss";
 
 interface IProps {
   children: any;
@@ -8,7 +8,7 @@ interface IProps {
   handleCreate: any;
 }
 
-export default function TodoAddContainer({
+export default function TodoMainAddContainer({
   children,
   formRef,
   handleCreate,

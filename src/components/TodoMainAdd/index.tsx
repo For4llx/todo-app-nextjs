@@ -2,15 +2,15 @@
 
 import ITodo from "@/interfaces/todo";
 import { FormEvent, useRef } from "react";
-import TodoAddCheckbox from "./TodoAddCheckbox";
-import TodoAddContainer from "./TodoAddContainer";
-import TodoAddField from "./TodoAddField";
+import TodoAddCheckbox from "./TodoMainAddCheckbox";
+import TodoAddContainer from "./TodoMainAddContainer";
+import TodoAddField from "./TodoMainAddField";
 
 interface IProps {
   setTodos: Function;
 }
 
-export default function TodoAdd({ setTodos }: IProps) {
+export default function TodoMainAdd({ setTodos }: IProps) {
   const formRef = useRef<HTMLFormElement>(null);
   const titleRef = useRef<HTMLInputElement>(null);
   const isCompletedRef = useRef<HTMLInputElement>(null);
@@ -19,7 +19,7 @@ export default function TodoAdd({ setTodos }: IProps) {
     e.preventDefault();
     const title = titleRef.current?.value;
     const isCompleted = isCompletedRef.current?.checked;
-    const response = await fetch("http://localhost:3000/api/todo", {
+    const response = await fetch(`${process.env.BASE_URL}/api/todo`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

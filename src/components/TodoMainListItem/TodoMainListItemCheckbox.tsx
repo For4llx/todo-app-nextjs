@@ -8,7 +8,7 @@ interface IProps {
   isCompleted: boolean;
 }
 
-export default function TodoListItemCheckbox({
+export default function TodoMainListItemCheckbox({
   todo,
   isCompleted,
   isCompletedRef,

@@ -3,9 +3,9 @@
 import ITodo from "@/interfaces/todo";
 import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
-import TodoListItemCheckbox from "./TodoListItemCheckbox";
-import TodoListItemContainer from "./TodoListItemContainer";
-import TodoListItemDelete from "./TodoListItemDelete";
+import TodoMainListItemCheckbox from "./TodoMainListItemCheckbox";
+import TodoMainListItemContainer from "./TodoMainListItemContainer";
+import TodoMainListItemDelete from "./TodoMainListItemDelete";
 
 interface IProps {
   todo: ITodo;
@@ -23,7 +23,7 @@ export default function TodoMainListItem({ todo, setTodos }: IProps) {
     const id = Number(TodoRef.current?.id);
     const isCompleted = isCompletedRef.current?.checked;
 
-    await fetch(`http://localhost:3000/api/todo/${id}`, {
+    await fetch(`${process.env.BASE_URL}/api/todo/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export default function TodoMainListItem({ todo, setTodos }: IProps) {
 
   async function handleDelete(e: React.MouseEvent<HTMLElement>) {
     const id = Number(TodoRef.current?.id);
-    const response = await fetch(`http://localhost:3000/api/todo/${id}`, {
+    const response = await fetch(`${process.env.BASE_URL}/api/todo/${id}`, {
       method: "DELETE",
     });
     const { deletedTodo } = await response.json();
@@ -51,14 +51,14 @@ export default function TodoMainListItem({ todo, setTodos }: IProps) {
   }
 
   return (
-    <TodoListItemContainer todo={todo} TodoRef={TodoRef}>
-      <TodoListItemCheckbox
+    <TodoMainListItemContainer todo={todo} TodoRef={TodoRef}>
+      <TodoMainListItemCheckbox
         isCompletedRef={isCompletedRef}
         todo={todo}
         handleUpdate={handleUpdate}
         isCompleted={isCompleted}
       />
-      <TodoListItemDelete handleDelete={handleDelete} />
-    </TodoListItemContainer>
+      <TodoMainListItemDelete handleDelete={handleDelete} />
+    </TodoMainListItemContainer>
   );
 }

@@ -1,12 +1,12 @@
 import ITodo from "@/interfaces/todo";
-import styles from "./TodoListItem.module.scss";
+import styles from "./TodoMainListItem.module.scss";
 interface IProps {
   todo: ITodo;
   TodoRef: any;
   children: React.ReactNode;
 }
 
-export default function TodoListItemContainer({
+export default function TodoMainListItemContainer({
   children,
   todo,
   TodoRef,
