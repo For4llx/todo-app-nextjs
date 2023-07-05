@@ -1,10 +1,10 @@
-import styles from "./TodoListItem.module.scss";
+import styles from "./TodoMainListItem.module.scss";
 
 interface IProps {
   handleDelete: any;
 }
 
-export default function TodoListItemDelete({ handleDelete }: IProps) {
+export default function TodoMainListItemDelete({ handleDelete }: IProps) {
   return (
     <button className={styles.button} onClick={handleDelete}>
       <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18">

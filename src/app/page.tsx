@@ -1,6 +1,6 @@
 import Todo from "@/components/Todo";
 async function getTodos() {
-  const response = await fetch("http://localhost:3000/api/todo", {
+  const response = await fetch(`${process.env.BASE_URL}/api/todo`, {
     cache: "no-cache",
   });
   const { todos } = await response.json();

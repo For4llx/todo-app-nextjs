@@ -1,8 +1,8 @@
 import ITodo from "@/interfaces/todo";
 import TodoMainListFooterNavigation from "../TodoMainListFooterNavigation";
-import TodoFooterClear from "./TodoFooterClear";
-import TodoFooterContainer from "./TodoFooterContainer";
-import TodoFooterCount from "./TodoFooterCount";
+import TodoMainFooterClear from "./TodoMainFooterClear";
+import TodoMainFooterContainer from "./TodoMainFooterContainer";
+import TodoMainFooterCount from "./TodoMainFooterCount";
 
 interface IProps {
   todos: ITodo[];
@@ -12,7 +12,7 @@ interface IProps {
 export default function TodoMainListFooter({ todos, setTodos }: IProps) {
   async function handleDeleteCompleted(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3000/api/todo/completed`, {
+    const response = await fetch(`${process.env.BASE_URL}/api/todo/completed`, {
       method: "DELETE",
     });
     setTodos((previousTodos: ITodo[]) => {
@@ -21,10 +21,10 @@ export default function TodoMainListFooter({ todos, setTodos }: IProps) {
   }
 
   return (
-    <TodoFooterContainer>
-      <TodoFooterCount>{todos.length} items left</TodoFooterCount>
+    <TodoMainFooterContainer>
+      <TodoMainFooterCount>{todos.length} items left</TodoMainFooterCount>
       <TodoMainListFooterNavigation />
-      <TodoFooterClear handleDeleteCompleted={handleDeleteCompleted} />
-    </TodoFooterContainer>
+      <TodoMainFooterClear handleDeleteCompleted={handleDeleteCompleted} />
+    </TodoMainFooterContainer>
   );
 }

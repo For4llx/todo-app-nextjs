@@ -1,11 +1,11 @@
-import styles from "./TodoFooterAction.module.scss";
+import styles from "./TodoMainFooterAction.module.scss";
 interface IProps {
   children: any;
   onClick: any;
   pathname: string;
 }
 
-export default function TodoFooterActionButton({
+export default function TodoMainFooterActionButton({
   pathname,
   onClick,
   children,

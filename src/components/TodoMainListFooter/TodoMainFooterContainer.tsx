@@ -4,6 +4,6 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export default function TodoFooterContainer({ children }: IProps) {
+export default function TodoMainFooterContainer({ children }: IProps) {
   return <footer className={styles.container}>{children}</footer>;
 }

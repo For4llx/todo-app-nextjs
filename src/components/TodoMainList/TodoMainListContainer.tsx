@@ -4,6 +4,6 @@ interface IProps {
   children: any;
 }
 
-export default function TodoListContainer({ children }: IProps) {
+export default function TodoMainListContainer({ children }: IProps) {
   return <ul className={styles.container}>{children}</ul>;
 }

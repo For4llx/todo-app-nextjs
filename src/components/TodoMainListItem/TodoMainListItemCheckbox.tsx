@@ -8,7 +8,7 @@ interface IProps {
   isCompleted: boolean;
 }
 
-export default function TodoListItemCheckbox({
+export default function TodoMainListItemCheckbox({
   todo,
   isCompleted,
   isCompletedRef,
@@ -33,6 +33,7 @@ export default function TodoListItemCheckbox({
         />
       )}
       <span className={utilsStyles.checkmark}></span>
+      <p className={utilsStyles.title}>{todo.title}</p>
     </label>
   );
 }

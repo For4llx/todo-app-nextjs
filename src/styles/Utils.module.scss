@@ -29,7 +29,11 @@
     border: 1px solid transparent;
   }
 }
-
+.customCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
 .customCheckbox input:checked ~ .checkmark {
   position: relative;
   background-image: var(--checkBackground);
@@ -48,4 +52,15 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
+}
+
+.title {
+  font-weight: 400;
+  letter-spacing: -0.25px;
+  color: var(--veryDarkGrayishBlue);
+}
+
+.customCheckbox input:checked ~ .title {
+  text-decoration: line-through;
+  color: var(--lightGrayishBlue);
 }

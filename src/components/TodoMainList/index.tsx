@@ -2,14 +2,14 @@ import TodoMainListItem from "@/components/TodoMainListItem";
 import ITodo from "@/interfaces/todo";
 import { useRef } from "react";
 import TodoMainListFooter from "../TodoMainListFooter";
-import TodoListContainer from "./TodoListContainer";
+import TodoMainListContainer from "./TodoMainListContainer";
 
 interface IProps {
   todos: ITodo[];
   setTodos: Function;
 }
 
-export default function TodoList({ todos, setTodos }: IProps) {
+export default function TodoMainList({ todos, setTodos }: IProps) {
   const draggedItem = useRef<any>(null);
   const draggedOverItem = useRef<any>(null);
 
@@ -20,7 +20,6 @@ export default function TodoList({ todos, setTodos }: IProps) {
 
       //switch the position
       todos.splice(draggedOverItem.current, 0, draggedItemContent);
-      console.log(todos);
 
       //reset the position ref
       draggedItem.current = null;
@@ -46,9 +45,9 @@ export default function TodoList({ todos, setTodos }: IProps) {
   ));
 
   return (
-    <TodoListContainer>
+    <TodoMainListContainer>
       {todoList}
       <TodoMainListFooter todos={todos} setTodos={setTodos} />
-    </TodoListContainer>
+    </TodoMainListContainer>
   );
 }

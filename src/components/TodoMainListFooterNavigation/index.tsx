@@ -1,17 +1,17 @@
-import TodoFooterActionContainer from "./TodoFooterActionContainer";
+import TodoMainFooterActionContainer from "./TodoMainFooterActionContainer";
 import { usePathname } from "next/navigation";
-import TodoFooterNavigationAll from "./TodoFooterSortAll";
-import TodoFooterNavigationActive from "./TodoFooterNavigationActive";
-import TodoFooterNavigationCompleted from "./TodoFooterNavigationCompleted";
+import TodoMainFooterNavigationAll from "./TodoMainFooterSortAll";
+import TodoMainFooterNavigationActive from "./TodoMainFooterNavigationActive";
+import TodoMainFooterNavigationCompleted from "./TodoMainFooterNavigationCompleted";
 
 export default function TodoMainListFooterNavigation() {
   const pathname = usePathname();
 
   return (
-    <TodoFooterActionContainer>
-      <TodoFooterNavigationAll pathname={pathname} />
-      <TodoFooterNavigationActive pathname={pathname} />
-      <TodoFooterNavigationCompleted pathname={pathname} />
-    </TodoFooterActionContainer>
+    <TodoMainFooterActionContainer>
+      <TodoMainFooterNavigationAll pathname={pathname} />
+      <TodoMainFooterNavigationActive pathname={pathname} />
+      <TodoMainFooterNavigationCompleted pathname={pathname} />
+    </TodoMainFooterActionContainer>
   );
 }
