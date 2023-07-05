@@ -1,6 +1,7 @@
 .container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 1.5rem;
   background-color: var(--veryDarkDesaturatedBlue);
   padding: 1.5rem;
@@ -12,14 +13,6 @@
       display: flex;
     }
   }
-}
-
-.title {
-  font-weight: 400;
-  letter-spacing: -0.25px;
-  color: var(--veryDarkGrayishBlue);
-  width: 100%;
-  text-transform: capitalize;
 }
 
 .button {

@@ -1,26 +1,29 @@
 "use client";
 
 import ITodo from "@/interfaces/todo";
+import { useRouter } from "next/navigation";
 import { useRef, useState } from "react";
 import TodoListItemCheckbox from "./TodoListItemCheckbox";
 import TodoListItemContainer from "./TodoListItemContainer";
 import TodoListItemDelete from "./TodoListItemDelete";
-import TodoListItemTitle from "./TodoListItemTitle";
 
 interface IProps {
   todo: ITodo;
   setTodos: Function;
 }
 
-export default function TodoListItem({ todo, setTodos }: IProps) {
+export default function TodoMainListItem({ todo, setTodos }: IProps) {
   const TodoRef = useRef<HTMLInputElement>(null);
   const [isCompleted, setIsCompleted] = useState(todo.isCompleted);
   const isCompletedRef = useRef<HTMLInputElement>(null);
 
+  const router = useRouter();
+
   async function handleUpdate(e: React.MouseEvent<HTMLInputElement>) {
     const id = Number(TodoRef.current?.id);
     const isCompleted = isCompletedRef.current?.checked;
-    const response = await fetch(`http://localhost:3000/api/todo/${id}`, {
+
+    await fetch(`http://localhost:3000/api/todo/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -29,16 +32,8 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
         isCompleted,
       }),
     });
-    setIsCompleted((value) => !value);
-    setTodos((previousTodos: ITodo[]) => {
-      return previousTodos.map((previousTodo: ITodo) => {
-        if (previousTodo.id == todo.id) {
-          previousTodo.isCompleted = isCompleted;
-          return previousTodo;
-        }
-        return previousTodo;
-      });
-    });
+
+    router.refresh();
   }
 
   async function handleDelete(e: React.MouseEvent<HTMLElement>) {
@@ -52,6 +47,7 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
         (indexTodo) => indexTodo.id != deletedTodo.id
       );
     });
+    router.refresh();
   }
 
   return (
@@ -62,7 +58,6 @@ export default function TodoListItem({ todo, setTodos }: IProps) {
         handleUpdate={handleUpdate}
         isCompleted={isCompleted}
       />
-      <TodoListItemTitle todo={todo} />
       <TodoListItemDelete handleDelete={handleDelete} />
     </TodoListItemContainer>
   );

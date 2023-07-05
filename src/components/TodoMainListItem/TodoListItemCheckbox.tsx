@@ -33,6 +33,7 @@ export default function TodoListItemCheckbox({
         />
       )}
       <span className={utilsStyles.checkmark}></span>
+      <p className={utilsStyles.title}>{todo.title}</p>
     </label>
   );
 }

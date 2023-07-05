@@ -20,7 +20,6 @@ export default function TodoList({ todos, setTodos }: IProps) {
 
       //switch the position
       todos.splice(draggedOverItem.current, 0, draggedItemContent);
-      console.log(todos);
 
       //reset the position ref
       draggedItem.current = null;

@@ -22,7 +22,7 @@
 #page[data-theme="dark"] {
   --veryDarkBlue: hsl(235, 21%, 11%);
   --veryDarkDesaturatedBlue: hsl(235, 24%, 19%);
-  --lightGrayishBlue: hsl(234, 39%, 85%);
+  --lightGrayishBlue: hsl(233, 14%, 35%);
   --lightGrayishBlueHover: hsl(236, 33%, 92%);
   --darkGrayishBlue: hsl(234, 11%, 52%);
   /*
@@ -30,7 +30,7 @@
   --veryDarkGrayishBlue: hsl(237, 14%, 26%);
   */
   --veryLightGrayishBlue: hsl(237, 14%, 26%);
-  --veryDarkGrayishBlue: var(--lightGrayishBlue);
+  --veryDarkGrayishBlue: hsl(234, 39%, 85%);
   --shadowColor: hsl(0, 0%, 0%);
   --backgroundUrl: url("../../public/images/bg-desktop-dark.jpg");
 }
