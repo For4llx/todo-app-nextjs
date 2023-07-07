@@ -8,7 +8,7 @@ export default function Todos() {
   const { todos, setTodos } = useContext(TodoContext);
 
   useEffect(() => {
-    fetch(`./api/todo`, { cache: "no-store" })
+    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/todo`, { cache: "no-store" })
       .then((response) => response.json())
       .then((data) => setTodos(data.todos));
   }, []);
