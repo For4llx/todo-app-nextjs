@@ -1,7 +1,8 @@
+import { MouseEventHandler } from "react";
 import styles from "./TodoMainListFooter.module.scss";
 
 interface IProps {
-  handleDeleteCompleted: any;
+  handleDeleteCompleted: MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function TodoMainFooterClear({ handleDeleteCompleted }: IProps) {

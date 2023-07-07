@@ -1,13 +1,17 @@
-import Todo from "@/components/Todo";
-async function getTodos() {
-  const response = await fetch(`${process.env.BASE_URL}/api/todo`, {
-    cache: "no-cache",
-  });
-  const { todos } = await response.json();
-  return todos;
-}
+"use client";
 
-export default async function Todos() {
-  const todos = await getTodos();
-  return <Todo todos={todos} />;
+import Todo from "@/components/Todo";
+import { TodoContext } from "@/provider/TodoProvider";
+import { useContext, useEffect } from "react";
+
+export default function Todos() {
+  const { todos, setTodos } = useContext(TodoContext);
+
+  useEffect(() => {
+    fetch(`./api/todo`, { cache: "no-store" })
+      .then((response) => response.json())
+      .then((data) => setTodos(data.todos));
+  }, []);
+
+  return <Todo todos={todos} setTodos={setTodos} />;
 }
