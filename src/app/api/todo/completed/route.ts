@@ -15,3 +15,5 @@ export async function DELETE(
   });
   return NextResponse.json({ deletedTodos });
 }
+
+export const revalidate = 0;

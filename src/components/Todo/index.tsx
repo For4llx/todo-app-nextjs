@@ -1,7 +1,4 @@
-"use client";
-
 import ITodo from "@/interfaces/todo";
-import { useState } from "react";
 import TodoHeader from "../TodoHeader";
 import TodoContainer from "./TodoContainer";
 import TodoMain from "../TodoMain";
@@ -9,11 +6,10 @@ import TodoFooter from "../TodoFooter";
 
 interface IProps {
   todos: ITodo[];
+  setTodos: Function;
 }
 
-export default function Todo({ todos: todosInital }: IProps) {
-  const [todos, setTodos] = useState(todosInital);
-
+export default function Todo({ todos, setTodos }: IProps) {
   return (
     <TodoContainer>
       <TodoHeader />

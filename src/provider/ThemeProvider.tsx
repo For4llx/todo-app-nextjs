@@ -2,7 +2,12 @@
 
 import { createContext, useState } from "react";
 
-export const ThemeContext = createContext({});
+interface IContext {
+  theme: "light" | "dark";
+  setTheme: Function;
+}
+
+export const ThemeContext = createContext<IContext>({} as IContext);
 
 interface IProps {
   children: React.ReactNode;
