@@ -1,8 +1,9 @@
 import ITodo from "@/interfaces/todo";
+import { LegacyRef } from "react";
 import styles from "./TodoMainListItem.module.scss";
 interface IProps {
   todo: ITodo;
-  TodoRef: any;
+  TodoRef: LegacyRef<HTMLElement>;
   children: React.ReactNode;
 }
 

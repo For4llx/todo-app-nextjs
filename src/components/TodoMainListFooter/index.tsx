@@ -12,7 +12,7 @@ interface IProps {
 export default function TodoMainListFooter({ todos, setTodos }: IProps) {
   async function handleDeleteCompleted(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
-    const response = await fetch(`${process.env.BASE_URL}/api/todo/completed`, {
+    const response = await fetch(`./api/todo/completed`, {
       method: "DELETE",
     });
     setTodos((previousTodos: ITodo[]) => {

@@ -1,6 +1,7 @@
+import TodoProvider from "@/provider/TodoProvider";
 import "@/styles/globals.css";
 import { Josefin_Sans } from "next/font/google";
-import ThemeProvider from "./provider/ThemeProvider";
+import ThemeProvider from "../provider/ThemeProvider";
 const josefinSans = Josefin_Sans({ subsets: ["latin"] });
 
 export const metadata = {
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={josefinSans.className}>
-        <ThemeProvider>{children}</ThemeProvider>
+        <TodoProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </TodoProvider>
       </body>
     </html>
   );

@@ -1,5 +1,6 @@
-import { ThemeContext } from "@/app/provider/ThemeProvider";
+import { ThemeContext } from "@/provider/ThemeProvider";
 import { useContext } from "react";
+import { Interface } from "readline";
 
 interface IProps {
   children: React.ReactNode;
