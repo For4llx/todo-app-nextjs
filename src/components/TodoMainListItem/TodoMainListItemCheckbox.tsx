@@ -1,10 +1,11 @@
 import ITodo from "@/interfaces/todo";
 import utilsStyles from "@/styles/Utils.module.scss";
+import { LegacyRef, MouseEventHandler } from "react";
 
 interface IProps {
-  isCompletedRef: any;
+  isCompletedRef: LegacyRef<HTMLInputElement>;
   todo: ITodo;
-  handleUpdate: any;
+  handleUpdate: MouseEventHandler<HTMLInputElement>;
   isCompleted: boolean;
 }
 

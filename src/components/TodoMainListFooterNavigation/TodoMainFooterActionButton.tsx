@@ -1,7 +1,8 @@
+import { MouseEventHandler } from "react";
 import styles from "./TodoMainFooterAction.module.scss";
 interface IProps {
-  children: any;
-  onClick: any;
+  children: React.ReactNode;
+  onClick: MouseEventHandler<HTMLButtonElement>;
   pathname: string;
 }
 

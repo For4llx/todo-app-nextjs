@@ -23,7 +23,7 @@ export default function TodoMainListItem({ todo, setTodos }: IProps) {
     const id = Number(TodoRef.current?.id);
     const isCompleted = isCompletedRef.current?.checked;
 
-    await fetch(`${process.env.BASE_URL}/api/todo/${id}`, {
+    await fetch(`./api/todo/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export default function TodoMainListItem({ todo, setTodos }: IProps) {
 
   async function handleDelete(e: React.MouseEvent<HTMLElement>) {
     const id = Number(TodoRef.current?.id);
-    const response = await fetch(`${process.env.BASE_URL}/api/todo/${id}`, {
+    const response = await fetch(`./api/todo/${id}`, {
       method: "DELETE",
     });
     const { deletedTodo } = await response.json();

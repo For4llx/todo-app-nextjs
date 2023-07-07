@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeContext } from "@/app/provider/ThemeProvider";
+import { ThemeContext } from "@/provider/ThemeProvider";
 import { useContext } from "react";
 import styles from "./TodoHeader.module.scss";
 

@@ -5,3 +5,5 @@ export async function GET() {
   const todos = await prisma.todo.findMany({ where: { isCompleted: false } });
   return NextResponse.json({ todos });
 }
+
+export const revalidate = 0;

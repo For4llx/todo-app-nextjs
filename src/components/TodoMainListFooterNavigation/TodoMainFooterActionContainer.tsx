@@ -1,7 +1,7 @@
 import styles from "./TodoMainFooterAction.module.scss";
 
 interface IProps {
-  children: any;
+  children: React.ReactNode;
 }
 
 export default function TodoMainFooterActionContainer({ children }: IProps) {

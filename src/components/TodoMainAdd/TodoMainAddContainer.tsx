@@ -1,11 +1,12 @@
 "use client";
 
+import { FormEventHandler, LegacyRef } from "react";
 import styles from "./TodoMainAdd.module.scss";
 
 interface IProps {
-  children: any;
-  formRef: any;
-  handleCreate: any;
+  children: React.ReactNode;
+  formRef: LegacyRef<HTMLFormElement>;
+  handleCreate: FormEventHandler<HTMLFormElement>;
 }
 
 export default function TodoMainAddContainer({

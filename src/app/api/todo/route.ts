@@ -13,3 +13,5 @@ export async function POST(request: NextRequest) {
   });
   return NextResponse.json({ createdTodo });
 }
+
+export const revalidate = 0;

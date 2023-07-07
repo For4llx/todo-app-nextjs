@@ -19,7 +19,7 @@ export default function TodoMainAdd({ setTodos }: IProps) {
     e.preventDefault();
     const title = titleRef.current?.value;
     const isCompleted = isCompletedRef.current?.checked;
-    const response = await fetch(`${process.env.BASE_URL}/api/todo`, {
+    const response = await fetch(`./api/todo`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

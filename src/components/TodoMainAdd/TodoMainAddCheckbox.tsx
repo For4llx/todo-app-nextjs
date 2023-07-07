@@ -1,7 +1,8 @@
 import utilsStyles from "@/styles/Utils.module.scss";
+import { LegacyRef } from "react";
 
 interface IProps {
-  isCompletedRef: any;
+  isCompletedRef: LegacyRef<HTMLInputElement>;
 }
 
 export default function TodoMainAddCheckbox({ isCompletedRef }: IProps) {
